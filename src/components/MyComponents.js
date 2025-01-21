@@ -32,38 +32,53 @@ class MyComponents extends React.Component{
     }
 
 
-    render() {
-        const { name, age } = this.state;
+    // render() {
+    //     const { name, age } = this.state;
     
+    //     return (
+    //     <div>
+    //         My name is {name} and I am {age} years old.
+    //         <br />
+    
+    //         <button onMouseOver={this.handleOnMouseOver}>hover me</button>
+    //         <br />
+            
+    //         <button onClick={this.handleClick}>click me</button>
+    //     </div>
+    //     );
+    // }
+
+
+
+    handleOnChange = (event) => {
+        this.setState({
+        name: event.target.value
+        });
+    };
+    
+    handleOnSubmit = (event) => {
+        event.preventDefault();  // hàm ngăn chặn sự kiện mặc định của form
+        console.log(this.state);
+    };
+    
+    render() {
         return (
         <div>
-            My name is {name} and I am {age} years old.
-            <br />
-    
-            <button onMouseOver={this.handleOnMouseOver}>hover me</button>
+            My name is {this.state.name} and I am {this.state.age} years old.
             <br />
             
-            <button onClick={this.handleClick}>click me</button>
+            <form onSubmit={this.handleOnSubmit}>
+            <input 
+                type="text" 
+                onChange={this.handleOnChange}
+                value={this.state.name}
+            />
+
+            <button type="submit">Submit</button>
+            </form>
         </div>
         );
     }
-
-    // // JSX        viết theo ? dân it
-    // render(){
-    //     return (
-    //         <div> 
-    //                 My name is {this.state.name} and I am {this.state.age} years old.
-
-    //                 <button onMouseOver = {this.handleOnMoverOver}>hover me</button>
-                    
-    //                 <button onClick = {this.handleClick}>click me</button> 
-
-    //                 {/* cách viết khác 
-    //                 <button onClick = {(even) => {this.handleClick(even)}}>click me</button> */}
-
-    //         </div>
-    //     );
-    // }
-}
-
-export default MyComponents;
+    }
+    
+    export default MyComponents;
