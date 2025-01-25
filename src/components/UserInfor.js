@@ -40,6 +40,11 @@ class UserInfor extends React.Component{
     
     render() {
         return (
+
+
+
+
+            
             <div>
                 My name is {this.state.name} and I am {this.state.age} years old.  
             <br />
@@ -53,7 +58,8 @@ class UserInfor extends React.Component{
             />
             <br />
             
-            <label>Your age: </label>
+            <label>Your age: </label><div>My Name's : {this.props.name}</div>
+                <div>My Age's : {this.props.age}</div>
             <input 
                 value={this.state.age}
                 type="text" 
